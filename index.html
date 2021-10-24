@@ -1,0 +1,82 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+    <title>Document</title>
+</head>
+
+<body>
+    <main>
+        <header class="text-center ml-auto mr-auto" >
+            <h2 id="h" class="animate__animated animate__fadeInUp animate__delay-2s display-1 
+            p-5 
+            bg-info
+            ">My clock Theme <button type="button" class="btn btn-primary" onclick="">Trocar</button></h2>
+            <div class=" d-flex flex-row justify-content-center">
+                <div class="co"></div>
+                    <div class="co1"></div>
+                    <div class="co2"></div>
+            </div>
+            <i id="i1" class="fa fa-star animate__animated animate__pulse animate__repeat-2"></i>
+            <label class="
+            display-3
+            animate__animated
+            animate__fadeInUp
+            animate__delay-1s
+            "
+            id="tempo">Tempo</label>
+            <label class="
+            display-4
+            animate__animated
+            animate__fadeInUp
+            animate__delay-1s" id="atual">Dia</label>
+            <i id="i2" class="fa fa-star animate__animated animate__pulse animate__repeat-2"></i><br>
+            <img id="img">
+        </header>
+    </main>
+    <script src="index.js"></script>
+    <script>
+        (async() => {
+            const res = await fetch('./Json/Tempo.json');
+            const data = await res.json();
+
+            const htmlList = data
+            .map( image  => `<img class="animate__animated animate__zoomIn  animate__delay-1s" id="imagem" src="${image.src}">`)
+            .join('')
+            
+            document.querySelector('.co').innerHTML = htmlList
+        })();
+        (async() => {
+            const rest = await fetch('./Json/textContent.json');
+            const datat = await rest.json();
+
+            const htmlListT = datat
+            .map( txt => `<span class="animate__animated animate__zoomIn animate__delay-2s" id="temp">${txt.textContent}°C</span>`)
+            .join('')
+
+            document.querySelector('.co1').innerHTML = htmlListT
+        })();
+        (async() => {
+            const restt = await fetch('./Json/conteudoC.json');
+            const datatt = await restt.json();
+
+            const htmlListTT = datatt
+            .map( txt => `<p class="animate__animated animate__zoomIn animate__delay-2s text-justify" id="tempe">${txt.textContent}</p>`)
+            .join('')
+
+            document.querySelector('.co2').innerHTML = htmlListTT
+        })();
+    </script>
+</body>
+
+</html>

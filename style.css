@@ -1,0 +1,32 @@
+
+h2 {
+    color: rgb(255, 255, 255);
+    border-bottom: 6px solid;
+}
+#tempo {
+    color: rgb(255, 255, 255);
+    border-bottom: 6px solid rgb(192, 94, 94);
+}
+#atual {
+    border-bottom: 6px solid rgb(226, 64, 64);
+}
+i {
+    color: white;
+}
+#imagem{
+    width: 10rem;
+}
+#temp{
+    font-size: 10rem;
+}
+#img {
+    height: 500px;
+    width: 500px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+}
+#tempe{
+    margin-top: 50px;
+    color: white;
+}
